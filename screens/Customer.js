@@ -1,20 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { useNavigation } from '@react-navigation/native';
 
-export default function Customer(){
+//import component screens for tab view
+import ViewCustomer from './horizontalTabs/ViewCustomer';
+import AddCustomer from './horizontalTabs/AddCustomer';
+
+const Tab = createMaterialTopTabNavigator()
+
+const Customer = () => {
+  const navigation = useNavigation();
   return (
-    <View style={styles.container}>
-      <Text style={{fontSize:20}}>Welcome to Customer</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer independent={true}>
+      <Tab.Navigator initialRouteName="ViewCustomers">
+        <Tab.Screen name="View Customers" component={ViewCustomer} />
+        <Tab.Screen name="Add Customers" component={AddCustomer} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default Customer;

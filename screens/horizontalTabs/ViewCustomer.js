@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function Attribute() {
+export default function ViewCustomer() {
   return (
     <View style={styles.container}>
-      <Text style={{fontSize:20}}>Welcome to Attribute</Text>
+      <Text style={{fontSize:20}}>Welcome to View Customers Tab!</Text>
       <StatusBar style="auto" />
     </View>
   );
